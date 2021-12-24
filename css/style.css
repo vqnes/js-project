@@ -1,0 +1,20 @@
+body {
+    margin :0;
+}
+
+a > img {
+    height: 150px;
+}
+
+a {
+    margin-right: 50px;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+#millionaire-game > img {
+    height: 165px;
+}

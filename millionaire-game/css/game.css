@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90vh;
+    min-width: 800px;
+    position: relative;
+}
+
+#container {
+    display: flex;
+    padding: 50px 50px 30px 50px;
+}
+
+#body-game {
+    flex-grow: 3;
+}
+
+#game-buttons {
+    margin-top: 25px;
+    text-align: center;
+}
+
+#continue-game, #exit-game {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 1px solid royalblue;
+    font-weight: bold;
+    background: linear-gradient(170deg, blue, 70%, #6495ED);
+}
+
+#continue-game:hover, #exit-game:hover {
+    opacity: 0.7;
+}
+
+#continue-game {
+    color: #FFA500;
+    text-shadow: 1px 1px 10px #FFA500;
+}
+
+#exit-game {
+    margin-right: 50px;
+    text-shadow: 1px 1px 10px white;
+    color: white;
+}
+
+#prizes {
+    color: #FFA500;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    min-width: 100px;
+}
+
+#prizes:first-child {
+    border-right: 1px solid white;
+    padding-right: 30px;
+}
+
+#prizes:last-child {
+    border-left: 1px solid white;
+    padding-left: 30px;
+}
+
+#prizes-items {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding-right: 20px;
+    height: inherit;
+}
+
+.prize {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#prizes-title {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.number-prize {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#game-help {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-help > button {
+    box-sizing: border-box;
+    height: 60px;
+    width: 90px;
+    padding: 5px;
+    border-radius: 30px;
+    margin-right: 15px;
+    cursor: pointer;
+    color: #DAA520;
+    fill: #DAA520;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid royalblue;
+    background: linear-gradient(170deg, darkblue, 80%, #AFEEEE);
+}
+
+#game-help > button:hover {
+    opacity: 0.75;
+}
+
+#fifty-fifty-help {
+    font-size: 26px;
+}
+
+#game-time {
+    color: #FFA500;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+#game-question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+#game-question {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 800px;
+    box-shadow: 0px 0px 40px -1px #6495ED inset;
+    border: 2px solid #6495ED;
+    border-radius: 10px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+#game-answers {
+    display: flex;
+    margin-top: 30px;
+    width: 800px;
+}
+
+.answers-container {
+    width: 375px;
+    position: relative;
+}
+
+.answers-container > div {
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 5px 45px 5px 10px;
+    box-shadow: 0px 0px 20px -1px #6495ED inset;
+    border: 2px solid #6495ED;
+    border-radius: 10px;
+    color: white;
+    line-height: 30px;
+}
+
+.answers-container > div:hover {
+    opacity: 0.7;
+}
+
+.answers-container > div > span:first-child {
+    display: inline-block;
+    margin-right: 10px;
+    color: #FFA500;
+}
+
+#number-question {
+    display: flex;
+    width: 50px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.current-prize {
+    background: #FFA500 !important;
+    color: white;
+}
+
+.guaranteed-prize {
+    color: white;
+}
+
+.disabled-button {
+    opacity: 0.5 !important;
+    cursor: default !important;
+}
+
+.right-answer {
+    background: #008000 !important;
+    opacity: 1 !important;
+}
+
+.selected-answer {
+    background: #FFA500;
+    opacity: 1 !important;
+}
+
+.selected-answer > span:first-child {
+    color: black !important;
+}
+
+.selected-answer > .probabilitie-answer {
+    color: #008000 !important;
+}
+
+.hidden-answer {
+    opacity: 0 !important;
+    cursor: default !important;
+}
+
+.probabilitie-answer {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    color: #9ACD32 !important;
+}
+
+.possible-answer {
+    border-color: #9ACD32 !important;
+}

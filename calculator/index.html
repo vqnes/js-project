@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/icon.ico" type="image/x-icon">
+    <title>Calculator</title>
+</head>
+<body>
+    <a id="exit-to-home" href="../index.html">
+        Вернуться на главную
+    </a>
+    <div id="calc-container">
+        <div id="calc-result">
+            <div id="calc-expression"></div>
+            <input type="text" onpaste="return false">
+        </div>
+        <div id="calc-buttons">
+            <div>
+                <div id="button-e" class="calc-button const-button" data-value="e">e</div>
+                <div id="button-factorial" class="calc-button" data-value="!">x!</div>
+                <div id="button-left-bracket" class="calc-button" data-value="(">(</div>
+                <div id="button-right-bracket" class="calc-button" data-value=")">)</div>
+                <div id="button-percent" class="calc-button operation-button" data-value="%">%</div>
+                <div id="button-clear" class="calc-button">CE</div>
+            </div>
+            <div>
+                <div id="button-sin" class="calc-button const-button" data-value="sin(">sin</div>
+                <div id="button-ln" class="calc-button const-button" data-value="ln(">ln</div>
+                <div id="button-7" class="calc-button num-button" data-value="7">7</div>
+                <div id="button-8" class="calc-button num-button" data-value="8">8</div>
+                <div id="button-9" class="calc-button num-button" data-value="9">9</div>
+                <div id="button-division" class="calc-button operation-button" data-value="/">/</div>
+            </div>
+            <div>
+                <div id="button-cos" class="calc-button const-button" data-value="cos(">cos</div>
+                <div id="button-log" class="calc-button const-button" data-value="log(">log</div>
+                <div id="button-4" class="calc-button num-button" data-value="4">4</div>
+                <div id="button-5" class="calc-button num-button" data-value="5">5</div>
+                <div id="button-6" class="calc-button num-button" data-value="6">6</div>
+                <div id="button-multiply" class="calc-button operation-button" data-value="*">*</div>
+            </div>
+            <div>
+                <div id="button-tan" class="calc-button const-button" data-value="tan(">tan</div>
+                <div id="button-radical" class="calc-button const-button" data-value="√(">√x</div>
+                <div id="button-1" class="calc-button num-button" data-value="1">1</div>
+                <div id="button-2" class="calc-button num-button" data-value="2">2</div>
+                <div id="button-3" class="calc-button num-button" data-value="3">3</div>
+                <div id="button-minus" class="calc-button operation-button" data-value="-">−</div>
+            </div>
+            <div>
+                <div id="button-pi" class="calc-button const-button" data-value="π">π</div>
+                <div id="button-pow" class="calc-button operation-button" data-value="^(">x<sup>y</sup></div>
+                <div id="button-0" class="calc-button num-button" data-value="0">0</div>
+                <div id="button-dot" class="calc-button" data-value=".">.</div>
+                <div id="button-result" class="calc-button" data-value="=">=</div>
+                <div id="button-plus" class="calc-button operation-button" data-value="+">+</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

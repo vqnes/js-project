@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+#millionaire-start-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-millionaire-game {
+    cursor: pointer;
+    display: inline-block;
+    padding: 20px 80px;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-image: url("../img/butt-bg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 30px;
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 15px #00FFFF;
+}
+
+#start-millionaire-game:hover {
+    opacity: 0.7;
+}
+
+#exit-to-home {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: #008cff;
+    font-size: 18px;
+}
