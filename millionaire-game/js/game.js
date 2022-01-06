@@ -1,169 +1,182 @@
 const questions = [
     {
         question: 'Где, если верить пословице, любопытной Варваре нос оторвали?',
-        variantA: 'На базаре',
-        variantB: 'На озере',
-        variantC: 'В шкафу',
-        variantD: 'Под кроватью',
+        variants: {
+            A: 'На базаре',
+            B: 'На озере',
+            C: 'В шкафу',
+            D: 'Под кроватью',    
+        },
         answer: 'A',
         prize: 100,
     },
     {
         question: 'Какой из этих летательных аппаратов появился раньше других?',
-        variantA: 'Самолет',
-        variantB: 'Дерижабль',
-        variantC: 'Вертолет',
-        variantD: 'Космическая ракета',
+        variants: {
+            A: 'Самолет',
+            B: 'Дерижабль',
+            C: 'Вертолет',
+            D: 'Космическая ракета',    
+        },
         answer: 'B',
         prize: 200,
     },
     {
         question: 'В какую одежду принято плакать, чтобы вызвать сочувствие?',
-        variantA: 'В платок',
-        variantB: 'В штаны',
-        variantC: 'В жилетку',
-        variantD: 'В пиджак',
+        variants: {
+            A: 'В платок',
+            B: 'В штаны',
+            C: 'В жилетку',
+            D: 'В пиджак',    
+        },
         answer: 'C',
         prize: 300,
     },
     {
         question: 'Кто или что из указанного имеет регулятор уровня громкости?',
-        variantA: 'Теща',
-        variantB: 'Двигатель',
-        variantC: 'Микроволновая печь',
-        variantD: 'Микшер',
+        variants: {
+            A: 'Теща',
+            B: 'Двигатель',
+            C: 'Микроволновая печь',
+            D: 'Микшер',    
+        },
         answer: 'D',
         prize: 500,
     },
     {
         question: 'Какое растение называют дикой розой?',
-        variantA: 'Жасмин',
-        variantB: 'Шиповник',
-        variantC: 'Розмарин',
-        variantD: 'Акация',
+        variants: {
+            A: 'Жасмин',
+            B: 'Шиповник',
+            C: 'Розмарин',
+            D: 'Акация',
+        },
         answer: 'B',
         prize: 1000,
     },
     {
         question: 'Какая из этих планет расположена ближе к других к земле?',
-        variantA: 'Венера',
-        variantB: 'Плутон',
-        variantC: 'Марс',
-        variantD: 'Меркурий',
+        variants: {
+            A: 'Венера',
+            B: 'Плутон',
+            C: 'Марс',
+            D: 'Меркурий',
+        },
         answer: 'A',
         prize: 2000,
     },
     {
         question: 'На каком инструменте, как считается, играл древнерусский певец и сказитель Боян?',
-        variantA: 'На баяне',
-        variantB: 'На виолончели',
-        variantC: 'На гуслях',
-        variantD: 'На гитаре',
+        variants: {
+            A: 'На баяне',
+            B: 'На виолончели',
+            C: 'На гуслях',
+            D: 'На гитаре',
+        },
         answer: 'C',
         prize: 4000,
     },
     {
         question: 'Какая картина Малевича находится в Русском музее?',
-        variantA: '"Точильщик"',
-        variantB: 'Белый квадрат',
-        variantC: 'Черный квадрат',
-        variantD: 'Красный квадрат',
+        variants: {
+            A: '"Точильщик"',
+            B: 'Белый квадрат',
+            C: 'Черный квадрат',
+            D: 'Красный квадрат',
+        },
         answer: 'D',
         prize: 8000,
     },
     {
         question: 'Какой титул имел Дон Кихот?',
-        variantA: 'Барон',
-        variantB: 'Маркиз',
-        variantC: 'Идальго',
-        variantD: 'Вождь',
+        variants: {
+            A: 'Барон',
+            B: 'Маркиз',
+            C: 'Идальго',
+            D: 'Вождь',
+        },
         answer: 'C',
         prize: 16000,
     },
     {
         question: 'Кто автор антиутопического романа "О дивный новый мир"?',
-        variantA: 'Олдос Хаксли',
-        variantB: 'Рэй Бредбери',
-        variantC: 'Джордж Оруэлл',
-        variantD: 'Иван Замятин',
+        variants: {
+            A: 'Олдос Хаксли',
+            B: 'Рэй Бредбери',
+            C: 'Джордж Оруэлл',
+            D: 'Иван Замятин',
+        },
         answer: 'A',
         prize: 32000,
     },
     {
         question: 'Как называется самая глубокая точка поверхности Земли, находящаяся на дне Марианской впадины?',
-        variantA: 'Филиппинская плита',
-        variantB: 'Бездна Челленджера',
-        variantC: 'Кермадек',
-        variantD: 'Черное логово',
+        variants: {
+            A: 'Филиппинская плита',
+            B: 'Бездна Челленджера',
+            C: 'Кермадек',
+            D: 'Черное логово',
+        },
         answer: 'B',
         prize: 64000,
     },
     {
         question: 'В какой из этих стран один из официальных языков - французский?',
-        variantA: 'Кения',
-        variantB: 'Эквадор',
-        variantC: 'Венесуэла',
-        variantD: 'Республика Гаити',
+        variants: {
+            A: 'Кения',
+            B: 'Эквадор',
+            C: 'Венесуэла',
+            D: 'Республика Гаити',
+        },
         answer: 'D',
         prize: 125000,
     },
     {
         question: 'В каком году произошла Куликовская битва?',
-        variantA: '1380',
-        variantB: '1569',
-        variantC: '1616',
-        variantD: '1773',
+        variants: {
+            A: '1380',
+            B: '1569',
+            C: '1616',
+            D: '1773',
+        },
         answer: 'A',
         prize: 250000,
     },
     {
         question: 'Шкала Сковилла - это шкала оценки...',
-        variantA: 'Качества атмосферного воздуха',
-        variantB: 'Привлекательности женщин',
-        variantC: 'Уровня моря',
-        variantD: 'Остроты перца',
+        variants: {
+            A: 'Качества атмосферного воздуха',
+            B: 'Привлекательности женщин',
+            C: 'Уровня моря',
+            D: 'Остроты перца',
+        },
         answer: 'D',
         prize: 500000,
     },
     {
         question: 'В каком из этих фильмов не снимался Александр Абдулов?',
-        variantA: '"Карнавал"',
-        variantB: '"Московские каникулы"',
-        variantC: '"Чародеи"',
-        variantD: '"Убить дракона"',
+        variants: {
+            A: '"Карнавал"',
+            B: '"Московские каникулы"',
+            C: '"Чародеи"',
+            D: '"Убить дракона"',
+        },
         answer: 'B',
         prize: 1000000,
     },
 ];
 
-/*
-    {
-        ...
-        variants: [
-            'A' => 'text',
-            'B' => 'text',
-            ...
-        ]
-        ...
-    }
-*/
-
 let numCurrentQuestion = 0;
 
 let timerId;
+
+let answers = document.querySelectorAll('.answers-container > div');
 
 changeQuestion();
 
 document.getElementById('prizes').append(createPrizes());
 
 window.addEventListener('load', countdown());
-
-let answers = [
-    document.getElementById('answer-a'),
-    document.getElementById('answer-b'),
-    document.getElementById('answer-c'),
-    document.getElementById('answer-d'),
-];
 
 for (let answer of answers) {
     answer.addEventListener('click', clickAnswer);
@@ -172,7 +185,11 @@ for (let answer of answers) {
 document.getElementById('continue-game').addEventListener('click', clickContinue);
 document.getElementById('exit-game').addEventListener('click', clickEndGame);
 
-document.getElementById('fifty-fifty-help').addEventListener('click', function () {
+document.getElementById('fifty-fifty-help').addEventListener('click', clickFiftyFifty);
+document.getElementById('hall-help').addEventListener('click', clickHallHelp);
+document.getElementById('call-friend-help').addEventListener('click', clickFriendHelp);
+
+function clickFiftyFifty() {
     if (
         this.classList.contains('disabled-button') ||
         timerId === null
@@ -181,12 +198,6 @@ document.getElementById('fifty-fifty-help').addEventListener('click', function (
     }
 
     let objectQuestion = questions[numCurrentQuestion - 1];
-    let answers = [
-        document.getElementById('answer-a'),
-        document.getElementById('answer-b'),
-        document.getElementById('answer-c'),
-        document.getElementById('answer-d'),
-    ];
 
     let indexRandAnswer;
     do {
@@ -205,9 +216,7 @@ document.getElementById('fifty-fifty-help').addEventListener('click', function (
     }
 
     this.classList.add('disabled-button');
-});
-document.getElementById('hall-help').addEventListener('click', clickHallHelp);
-document.getElementById('call-friend-help').addEventListener('click', clickFriendHelp);
+}
 
 function clickHallHelp() {
     if (
@@ -255,12 +264,8 @@ function getRandomsInInterval(amount, limit = 100) {
             result[i] = randomInt;
         }
 
-        let sumRandoms = result.reduce(function (previousValue, currentElem) {
-            return previousValue + currentElem;
-        });
-
-        if (sumRandoms < limit) {
-            result[getRandomInt(0, amount - 1)] += limit - sumRandoms;
+        if (tempLimit > 0) {
+            result[getRandomInt(0, amount - 1)] += tempLimit;
         }
     }
 
@@ -306,15 +311,11 @@ function countdown(start = 60, end = 0) {
         if (start === end) {
             clearInterval(timerId);
             timerId = null;
-            showRightAnswer();
 
-            if (numCurrentQuestion % 5 === 0 || numCurrentQuestion < 5) {
-                setTimeout(function () {
-                    showResult(false, getGuaranteedSum());
-                }, 3000);
-            } else {
-                document.getElementById('exit-game').classList.remove('disabled-button');
-            }
+            showRightAnswer();
+            setTimeout(function () {
+                showResult(false, getGuaranteedSum());
+            }, 3000);
         }
     }, 1000)
 }
@@ -360,18 +361,13 @@ function prepareNumber(number) {
 }
 
 function clickAnswer() {
-    let answer = this.dataset.value;
-    let rightAnswer = questions[numCurrentQuestion - 1].answer;
-    let answerContainers = [
-        document.getElementById('answer-a'),
-        document.getElementById('answer-b'),
-        document.getElementById('answer-c'),
-        document.getElementById('answer-d'),
-    ];
-
     if (this.classList.contains('hidden-answer')) {
         return;
     }
+
+    let answer = this.dataset.value;
+    let rightAnswer = questions[numCurrentQuestion - 1].answer;
+    let answerContainers = answers;
 
     for (let answerContainer of answerContainers) {
         if (
@@ -383,7 +379,7 @@ function clickAnswer() {
     }
 
     clearInterval(timerId);
-    timerId= null;
+    timerId = null;
 
     this.classList.add('selected-answer');
     showRightAnswer();
@@ -408,22 +404,17 @@ function changeQuestion() {
         setTimeout(function () {
             showResult(true, questions[numCurrentQuestion - 2].prize);
         }, 3000);
+
         return false;
     }
 
     let objectQuestion = questions[numCurrentQuestion - 1];
-    let answers = [
-        document.getElementById('answer-a'),
-        document.getElementById('answer-c'),
-        document.getElementById('answer-b'),
-        document.getElementById('answer-d'),
-    ];
 
     document.getElementById('number-question').textContent = numCurrentQuestion;
     document.getElementById('game-question').textContent = objectQuestion.question;
 
     for (let answer of answers) {
-        answer.getElementsByClassName('answer-desc')[0].textContent = objectQuestion['variant' + answer.dataset.value];
+        answer.querySelector('.answer-desc').textContent = objectQuestion.variants[answer.dataset.value];
 
         if (answer.classList.contains('right-answer')) {
             answer.classList.remove('right-answer');
@@ -433,15 +424,12 @@ function changeQuestion() {
             answer.classList.remove('selected-answer');
         }
 
-        if (
-            document.querySelector('.probabilitie-answer') !== null &&
-            !answer.classList.contains('hidden-answer')
-        ) {
-            answer.removeChild(document.querySelector('.probabilitie-answer'));
-        }
-
         if (answer.classList.contains('hidden-answer')) {
             answer.classList.remove('hidden-answer');
+        }
+
+        if (answer.querySelector('.probabilitie-answer') !== null) {
+            answer.removeChild(answer.querySelector('.probabilitie-answer'));
         }
 
         if (answer.classList.contains('possible-answer')) {

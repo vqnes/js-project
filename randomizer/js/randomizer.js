@@ -29,25 +29,34 @@ function clickGenerate() {
 function validate() {
     let result = true;
 
-    let inputs = {
-        amountGenerated: document.getElementById('rand-nums-amount'),
-        leftRange: document.getElementById('rand-left-range'),
-        rightRange: document.getElementById('rand-right-range'),
+    let amountGenerated = document.getElementById('rand-nums-amount');
+    let range = {
+        left: document.getElementById('rand-left-range'),
+        right: document.getElementById('rand-right-range'),
+    };
+
+    for (let key in range) {
+        if (
+            range[key].type !== 'number' ||
+            range[key].value === '' ||
+            /[^\d-]/.test(range[key].value)
+        ) {
+            range[key].classList.add('border-danger');
+            result = false;
+        } else if (range[key].classList.contains('border-danger')) {
+            range[key].classList.remove('border-danger');
+        }
     }
 
-    for (let key in inputs) {
-        let input = inputs[key];
-
-        if (
-            input.type !== 'number' || input.value === '' ||
-            (input === inputs.amountGenerated && (/[^\d]/.test(input.value) || /^0/.test(input.value))) ||
-            (input !== inputs.amountGenerated && /[^\d-]/.test(input.value))
-        ) {
-            input.classList.add('border-danger');
-            result = false;
-        } else if (input.classList.contains('border-danger')) {
-            input.classList.remove('border-danger');
-        }
+    if (
+        amountGenerated.type !== 'number' ||
+        amountGenerated.value === '' ||
+        /^0|[^\d]/.test(amountGenerated.value)
+    ) {
+        amountGenerated.classList.add('border-danger');
+        result = false;
+    } else if (amountGenerated.classList.contains('border-danger')) {
+        amountGenerated.classList.remove('border-danger');
     }
 
     return result;
@@ -86,14 +95,14 @@ function getRandomIntegers(min, max, amount, repeat) {
 
 function createContainerRandNums(generatedNums) {
     let randContainer = document.createElement('div');
-    let randNumsClassList = [
+    let randContainerClassList = [
         'mx-auto',
         'text-center',
         'mt-3',
         'col-7',
     ];
-    for (let randNumsClass of randNumsClassList) {
-        randContainer.classList.add(randNumsClass);
+    for (let randContainerClass of randContainerClassList) {
+        randContainer.classList.add(randContainerClass);
     }
     randContainer.id = 'rand-nums-container';
 
@@ -108,14 +117,24 @@ function createContainerRandNums(generatedNums) {
     randContainer.append(randNumsDesc);
 
     let randNumsContainer = document.createElement('div');
-    randNumsContainer.classList.add('d-flex');
-    randNumsContainer.classList.add('flex-wrap');
-    randNumsContainer.classList.add('justify-content-center');
+    let randNumsContainerClassList = [
+        'd-flex',
+        'flex-wrap',
+        'justify-content-center',
+    ];
+    for (let randNumsContainerClass of randNumsContainerClassList) {
+        randNumsContainer.classList.add(randNumsContainerClass);
+    }
 
+    let randNumClassList = [
+        'fs-1',
+        'pe-4',
+    ];
     for (let generatedNum of generatedNums) {
         let randNum = document.createElement('span');
-        randNum.classList.add('fs-1');
-        randNum.classList.add('pe-4');
+        for (let randNumClass of randNumClassList) {
+            randNum.classList.add(randNumClass);
+        }
         randNum.append(generatedNum);
 
         randNumsContainer.append(randNum);

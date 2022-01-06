@@ -213,9 +213,13 @@ buttonResult.addEventListener('click', function () {
             for (let i = 0; i < powIndexes.length; i++) {
                 powIndexes[i] = expression.indexOf('^');
 
-                expressionIndexes = getIndexesSubexpression(expression, powIndexes[i]);
+                expressionIndexes = getIndexesSubexpression(expression, powIndexes[i], true);
 
-                expression = expression.substr(0, expressionIndexes[0]) + 'Math.pow(' + expression.substr(expressionIndexes[0], expressionIndexes[1] - expressionIndexes[0] + 1) + ')' + expression.substr(expressionIndexes[1] + 1, expression.length - expressionIndexes[1] - 1);
+                let leftExpression = expression.substr(0, expressionIndexes[0]);
+                let expressionWithPow = 'Math.pow(' + expression.substr(expressionIndexes[0], expressionIndexes[1] - expressionIndexes[0] + 1) + ')';
+                let rightExpression = expression.substr(expressionIndexes[1] + 1, expression.length - expressionIndexes[1] - 1);
+
+                expression = leftExpression + expressionWithPow + rightExpression;
                 expression = expression.replace('^', ',');
             }
         }
@@ -225,7 +229,7 @@ buttonResult.addEventListener('click', function () {
             for (let i = 0; i < factorialIndexes.length; i++) {
                 factorialIndexes[i] = expression.indexOf('!');
 
-                expressionIndexes = getIndexesSubexpression(expression, factorialIndexes[i]);
+                expressionIndexes = getIndexesSubexpression(expression, factorialIndexes[i], false);
 
                 let expressionWithFact = expression.substr(expressionIndexes[0], expressionIndexes[1] - expressionIndexes[0]);
 
@@ -237,34 +241,28 @@ buttonResult.addEventListener('click', function () {
 
         inputExpression.textContent = input.value + this.dataset.value + result;
 
-        if (
-            isNaN(result) ||
-            /[^0-9\.-]/.test(result)
-        ) {
+        if (isNaN(result) || /[^0-9\.-]/.test(result)) {
             result = '';
         }
         input.value = result;
     }
+
     input.focus();
 });
 
 function addOperationSymbolInInput(event, addedValue = this.dataset.value) {
     let inputValue = input.value;
     let lastInputSymbol = inputValue.length ? inputValue[inputValue.length - 1] : '';
-    let regex = /[-%\/\*\+]$/;
 
     if (
-        inputValue.length !== 0 &&
-        lastInputSymbol !== '(' &&
-        lastInputSymbol !== '.' ||
-        ((inputValue.length === 0 || lastInputSymbol === '(') && addedValue === '-')
+        !/[(\.]$|^\s*$/.test(inputValue) ||
+        (/\($|^\s*$/.test(inputValue) && addedValue === '-')
     ) {
-        if (!regex.test(inputValue)) {
+        if (!/[-%\/\*\+]$/.test(inputValue)) {
             input.value += addedValue;
         } else if (
             lastInputSymbol !== addedValue &&
-            inputValue.length > 1 &&
-            inputValue[inputValue.length - 2] !== '('
+            !/\(+.$|^.{1}$/.test(inputValue)
         ) {
             input.value = inputValue.slice(0, inputValue.length - 1) + addedValue;
         }
@@ -273,26 +271,22 @@ function addOperationSymbolInInput(event, addedValue = this.dataset.value) {
     input.focus();
 }
 
-
 function addNumInInput(event, addedValue = this.dataset.value) {
     let inputValue = input.value;
     let lastInputSymbol = inputValue.length ? inputValue[inputValue.length - 1] : '';
     let inputSplit = inputValue.split(/[-%\/\*\+(]/);
     let lastInputSplit = inputSplit[inputSplit.length - 1];
-    let add = true;
+    let isAdd = true;
 
-    if (
-        lastInputSymbol === '0' &&
-        lastInputSplit.search(/[\.0-9]/) === lastInputSplit.length - 1
-    ) {
-        add = false;
+    if (/^(0(?!\.))?0$/.test(lastInputSplit)) {
+        isAdd = false;
     }
 
     if (/[eπ)!]$/.test(lastInputSplit)) {
         input.value += '*';
     }
 
-    if (!add) {
+    if (!isAdd) {
         input.value = inputValue.slice(0, inputValue.length - 1);
     }
 
@@ -306,9 +300,7 @@ function addConstInInput(event, addedValue = this.dataset.value) {
     let lastInputSymbol = inputValue.length ? inputValue[inputValue.length - 1] : '';
 
     if (lastInputSymbol !== '.') {
-        let regex = /[eπ)!0-9]$/;
-
-        if (regex.test(inputValue)) {
+        if (/[eπ)!0-9]$/.test(inputValue)) {
             input.value += '*';
         }
 
@@ -348,7 +340,7 @@ function getIndexesSubstrInStr(string, substring) {
     return indexes;
 }
 
-function getIndexesSubexpression(expression, operationIndex) {
+function getIndexesSubexpression(expression, operationIndex, isLast) {
     let indexes = [0, operationIndex];
     let operations = ['+', '-', '*', '/', '%'];
 
@@ -375,8 +367,8 @@ function getIndexesSubexpression(expression, operationIndex) {
             }
         }
 
-        operations = ['+', '-', '*', '/', '%', '^', '!']
-        if (expression[operationIndex] === '^') {
+        if (isLast) {
+            operations = ['+', '-', '*', '/', '%', '^', '!'];
             amountBrackets = 0;
             for (let i = operationIndex + 1; i < expression.length; i++) {
                 if (expression[i] === '(') {
